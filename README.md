@@ -30,7 +30,9 @@ A Logitech-style radial shortcut wheel for KDE Plasma. Create customizable actio
 
 ## Installation
 
-### Quick Install
+### Quick Install (Recommended)
+
+The install script creates an isolated virtual environment, keeping your system Python clean:
 
 ```bash
 git clone https://github.com/Guhan-SenSam/KDE-LogiWheel.git
@@ -38,39 +40,55 @@ cd KDE-LogiWheel
 ./install.sh
 ```
 
+This will:
+- Install system dependencies (xdotool, etc.)
+- Create a virtual environment at `~/.local/share/kde-logiwheel/venv`
+- Install all Python dependencies in the venv
+- Create wrapper scripts in `~/.local/bin/`
+- Set up desktop entries and systemd service
+
 ### Manual Installation
 
-1. **Install dependencies**:
+1. **Install system dependencies**:
 
    ```bash
    # Arch Linux
-   sudo pacman -S python python-pip python-pyqt6 python-dbus xdotool
+   sudo pacman -S python python-pip python-virtualenv xdotool
 
    # Ubuntu/Debian
-   sudo apt install python3 python3-pip python3-pyqt6 python3-dbus xdotool
+   sudo apt install python3 python3-pip python3-venv xdotool
 
    # Fedora
-   sudo dnf install python3 python3-pip python3-qt6 python3-dbus xdotool
+   sudo dnf install python3 python3-pip python3-virtualenv xdotool
    ```
 
-2. **Install the package**:
+2. **Create and activate virtual environment**:
 
    ```bash
-   pip install --user -e .
+   mkdir -p ~/.local/share/kde-logiwheel
+   python3 -m venv ~/.local/share/kde-logiwheel/venv
+   source ~/.local/share/kde-logiwheel/venv/bin/activate
    ```
 
-3. **Install optional input handlers** (recommended for Wayland):
+3. **Install the package**:
 
    ```bash
-   pip install --user pynput evdev
+   pip install -e .
+   pip install pynput evdev  # Optional: for input handling
    ```
 
-4. **Add user to input group** (for evdev on Wayland):
+4. **Add user to input group** (for Wayland):
 
    ```bash
    sudo usermod -aG input $USER
    # Log out and back in
    ```
+
+### Uninstall
+
+```bash
+./uninstall.sh
+```
 
 ## Usage
 
