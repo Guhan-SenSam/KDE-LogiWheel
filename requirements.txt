@@ -1,0 +1,7 @@
+# Core dependencies
+PyQt6>=6.4.0
+dbus-python>=1.3.2
+
+# Optional: Input handling (recommended)
+pynput>=1.7.6
+evdev>=1.6.0

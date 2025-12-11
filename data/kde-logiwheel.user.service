@@ -1,0 +1,14 @@
+[Unit]
+Description=KDE LogiWheel - Shortcut Wheel Service
+Documentation=https://github.com/Guhan-SenSam/KDE-LogiWheel
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/kde-logiwheel-daemon
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

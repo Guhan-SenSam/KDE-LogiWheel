@@ -1,0 +1,22 @@
+[Unit]
+Description=KDE LogiWheel - Shortcut Wheel Service
+Documentation=https://github.com/Guhan-SenSam/KDE-LogiWheel
+After=graphical-session.target
+PartOf=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kde-logiwheel-daemon
+Restart=on-failure
+RestartSec=5
+
+# Environment
+Environment=QT_QPA_PLATFORM=xcb
+Environment=DISPLAY=:0
+
+# For Wayland
+Environment=QT_QPA_PLATFORM=wayland
+
+[Install]
+WantedBy=graphical-session.target

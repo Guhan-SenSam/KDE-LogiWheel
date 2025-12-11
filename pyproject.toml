@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kde-logiwheel"
+version = "1.0.0"
+description = "A Logitech-style shortcut wheel for KDE"
+readme = "README.md"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "KDE-LogiWheel Contributors"}
+]
+keywords = ["kde", "logitech", "shortcut", "wheel", "menu", "radial"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: X11 Applications :: KDE",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Desktop Environment :: K Desktop Environment (KDE)",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "PyQt6>=6.4.0",
+    "dbus-python>=1.3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-qt>=4.2.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+]
+input = [
+    "pynput>=1.7.6",
+    "evdev>=1.6.0",
+]
+
+[project.scripts]
+kde-logiwheel = "src.__main__:main"
+kde-logiwheel-daemon = "src.service.daemon:main"
+kde-logiwheel-config = "src.ui.main_window:main"
+
+[project.gui-scripts]
+kde-logiwheel-settings = "src.ui.main_window:main"
+
+[project.urls]
+Homepage = "https://github.com/Guhan-SenSam/KDE-LogiWheel"
+Repository = "https://github.com/Guhan-SenSam/KDE-LogiWheel"
+Issues = "https://github.com/Guhan-SenSam/KDE-LogiWheel/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.desktop", "*.svg", "*.png"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

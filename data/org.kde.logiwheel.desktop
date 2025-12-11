@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=KDE LogiWheel
+GenericName=Shortcut Wheel
+Comment=A Logitech-style shortcut wheel for KDE
+Icon=input-mouse
+Exec=kde-logiwheel-config
+Terminal=false
+Categories=Qt;KDE;Settings;HardwareSettings;
+Keywords=logitech;mouse;wheel;shortcut;radial;menu;
+StartupNotify=true
+X-KDE-StartupNotify=true

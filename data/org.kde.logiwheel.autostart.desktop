@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=KDE LogiWheel Daemon
+Comment=Background service for KDE LogiWheel
+Icon=input-mouse
+Exec=kde-logiwheel-daemon
+Terminal=false
+Categories=Qt;KDE;
+X-KDE-autostart-condition=true
+X-KDE-autostart-phase=2
+Hidden=false
+NoDisplay=true
